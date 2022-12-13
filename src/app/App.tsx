@@ -11,7 +11,9 @@ const SAMPLE: GuessItem[] = [
 
 const App = () => {
   const [guesses, setGuesses] = useState<GuessItem[]>(SAMPLE)
-  const { register, handleSubmit, reset } = useForm<GuessItem>()
+  const defaultValues = { word: "", result: "" }
+  const { register, handleSubmit, watch, reset } = useForm<GuessItem>({ defaultValues })
+  const guess = watch()
 
   const submit = handleSubmit((values) => {
     setGuesses([...guesses, values])
@@ -46,7 +48,7 @@ const App = () => {
       </form>
 
       <section className="guesses">
-        {guesses.map(({ word, result }, guessIndex) => (
+        {[...guesses, guess].map(({ word, result }, guessIndex) => (
           <div className="guess" key={guessIndex}>
             {word.split("").map((char, charIndex) => (
               <span className={classNames("char", getClassname(result[charIndex]))} style={{ width: 32, height: 32 }} key={charIndex}>
@@ -65,5 +67,6 @@ const App = () => {
 export default App
 
 const getClassname = (color: string) => {
+  if (!color) return "tbd"
   return "bg-" + { y: "present", g: "correct", b: "absent" }[color]
 }
