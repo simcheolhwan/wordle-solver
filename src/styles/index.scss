@@ -1,1 +1,53 @@
 @import "normalize";
+@import "variables";
+
+body {
+  padding: 20px;
+  font-family: "Roboto Mono", monospace, monospace;
+}
+
+form {
+  text-align: center;
+}
+
+.guesses {
+  display: grid;
+  gap: 4px;
+  justify-content: center;
+
+  margin: 20px;
+}
+
+.guess {
+  display: flex;
+  gap: 4px;
+}
+
+.char {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: bold;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+}
+
+.possible {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.item {
+  width: 4rem;
+}
+
+.muted {
+  opacity: 0.5;
+}

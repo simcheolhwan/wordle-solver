@@ -1,0 +1,17 @@
+:root {
+  --present: #b59f3b;
+  --correct: #538d4e;
+  --absent: #3a3a3c;
+}
+
+.bg-present {
+  background-color: var(--present);
+}
+
+.bg-correct {
+  background-color: var(--correct);
+}
+
+.bg-absent {
+  background-color: var(--absent);
+}
